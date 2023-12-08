@@ -55,4 +55,7 @@ end
 group :test do
   # For adding tests
   gem 'rspec-rails'
+
+  # For stubbing/mocking methods
+  gem 'webmock'
 end
