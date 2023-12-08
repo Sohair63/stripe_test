@@ -49,7 +49,6 @@ end
 group :development do
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :test do
@@ -58,4 +57,7 @@ group :test do
 
   # For stubbing/mocking methods
   gem 'webmock'
+
+  # For creating specs data
+  gem 'factory_bot_rails'
 end

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module WebhookProcessor
   # Processes a charge.refunded webhook for stripe
   #

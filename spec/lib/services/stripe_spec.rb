@@ -1,5 +1,3 @@
-# spec/services/stripe_spec.rb
-
 require 'rails_helper'
 require 'webmock/rspec'
 
