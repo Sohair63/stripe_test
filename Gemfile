@@ -52,3 +52,7 @@ group :development do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
+group :test do
+  # For adding tests
+  gem 'rspec-rails'
+end
