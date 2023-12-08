@@ -11,4 +11,7 @@ Rails.application.routes.draw do
   resource :charges, only: %i[create] do
     post :refund
   end
+
+  post 'webhooks/:source', controller: :webhooks, action: :create
+  get 'webhooks/:source', controller: :webhooks, action: :create
 end
