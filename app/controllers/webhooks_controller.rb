@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# This is used to handle incoming webhook requests.
+#
 class WebhooksController < ApplicationController
   # GET/POST /webhooks/:source
   #
@@ -19,6 +21,7 @@ class WebhooksController < ApplicationController
 
   def request_data
     return request.raw_post if request.post?
+
     request.query_parameters.to_json
   end
 
@@ -26,7 +29,7 @@ class WebhooksController < ApplicationController
     request
       .env
       .select { |k, _| k =~ /^HTTP_/ }
-      .transform_keys { |k| k.sub(/^HTTP_/, '') }
+      .transform_keys { |k| k.sub(/^HTTP_/, "") }
   end
 
   def already_processed?

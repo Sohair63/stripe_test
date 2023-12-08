@@ -1,3 +1,7 @@
+# frozen_string_literal: true
+
+# This is used for defining response methods used in controllers.
+#
 module Respondable
   extend ActiveSupport::Concern
 

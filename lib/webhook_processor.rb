@@ -19,7 +19,7 @@ module WebhookProcessor
 
     return unless verified?(webhook)
 
-    processor = const_get(webhook.event.tr('.', '_').camelcase)
+    processor = const_get(webhook.event.tr(".", "_").camelcase)
     result = processor.call(webhook:)
     webhook.update(processed: true) if result.success?
   end
@@ -33,7 +33,7 @@ module WebhookProcessor
   #
   def verified?(webhook)
     case webhook.source
-    when 'stripe'
+    when "stripe"
       stripe_verified?(webhook)
     end
   end
@@ -46,8 +46,8 @@ module WebhookProcessor
   #
   def parse_id(webhook)
     case webhook.source
-    when 'stripe'
-      webhook.json_data['id']
+    when "stripe"
+      webhook.json_data["id"]
     end
   end
 
@@ -59,8 +59,8 @@ module WebhookProcessor
   #
   def parse_event(webhook)
     case webhook.source
-    when 'stripe'
-      webhook.json_data['type']
+    when "stripe"
+      webhook.json_data["type"]
     end
   end
 
@@ -69,7 +69,7 @@ module WebhookProcessor
   def stripe_verified?(webhook)
     Stripe::Webhook.construct_event(
       webhook.data,
-      webhook.headers['STRIPE_SIGNATURE'],
+      webhook.headers["STRIPE_SIGNATURE"],
       Rails.application.credentials.stripe[:webhook_secret]
     )
     true

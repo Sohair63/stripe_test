@@ -8,7 +8,7 @@ module WebhookProcessor
     delegate :webhook, to: :context
 
     def call
-      Rails.logger.info 'Processed a charge.succeeded webhook for stripe'
+      Rails.logger.info "Processed a charge.succeeded webhook for stripe"
     end
   end
 end
